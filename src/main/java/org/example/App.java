@@ -1,10 +1,4 @@
 package org.example;
-/*
-
-Описать базовый интерфейс BaseRepository для реализации паттерна DAO
-с CRUD операциями и выборкой всех объектов (для любого класса) findAll()
- */
-
 
 import java.sql.*;
 
