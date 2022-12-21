@@ -51,7 +51,7 @@ public class CatRepositoryTest
         testCat = repository.read(5L);
         assertEquals("Мурка", testCat.getName());
         assertEquals(3, testCat.getWeight());
-        assertTrue(testCat.isAngry());
+        assertTrue(!testCat.isAngry());
 
         repository.delete(1L);
         testCat = repository.read(1L);
