@@ -1,12 +1,10 @@
 package org.example;
 
-import junit.framework.TestCase;
+
 import org.example.repository.Cat;
 import org.example.repository.CatRepository;
-import org.example.repository.SimpleCatRepository;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.List;
 
 import static junit.framework.TestCase.*;
@@ -16,8 +14,8 @@ public class CatRepositoryTest
 {
     private CatRepository repository;
     @Before
-    public void init(){
-        repository = new SimpleCatRepository();
+    public void init() {
+        repository = new AdvancedCatRepository();
     }
     @Test
     public void shouldCRUDWorks (){
@@ -35,6 +33,7 @@ public class CatRepositoryTest
 
         List<Cat> cats = repository.findAll();
         assertEquals(5, cats.size());
+
 
         Cat testCat = repository.read(3L);
         assertEquals("Кусец", testCat.getName());

@@ -28,7 +28,8 @@ public class SimpleCatRepository implements CatRepository{
             Class.forName(DB_DRIVER);
             Connection connection = DriverManager.getConnection(DB_URL); //установили соединение
             Statement statement = connection.createStatement();
-            statement.executeUpdate(String.format("INSERT INTO cats VALUES ('%d', '%s','%d','%b')", element.getId(), element.getName(), element.getWeight(), element.isAngry())); //для себя https://hr-vector.com/java/formatirovanie-chisel-strok                    String request = String.format("INSERT INTO cats VALUES ('%d','%s','%d','%b')",
+            statement.executeUpdate(String.format("INSERT INTO cats VALUES ('%d', '%s','%d','%b')", element.getId(), element.getName(),
+                    element.getWeight(), element.isAngry())); //для себя https://hr-vector.com/java/formatirovanie-chisel-strok                    String request = String.format("INSERT INTO cats VALUES ('%d','%s','%d','%b')",
 
             connection.close();
             return true;
@@ -63,10 +64,10 @@ public class SimpleCatRepository implements CatRepository{
             Class.forName(DB_DRIVER);
             Connection connection = DriverManager.getConnection(DB_URL);
             Statement statement = connection.createStatement();
-            int changes = statement.executeUpdate(String.format("UPDATE cats SET Id = '%d', Name = '%s', Weight = '%d', IsAngry = '%b' WHERE Id = '%d'",
+            int rows = statement.executeUpdate(String.format("UPDATE cats SET Id = '%d', Name = '%s', Weight = '%d', IsAngry = '%b' WHERE Id = '%d'",
                     element.getId(), element.getName(), element.getWeight(), element.isAngry(), id));
             connection.close();
-            return changes;
+            return rows;
         }
         catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
